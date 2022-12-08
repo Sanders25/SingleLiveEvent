@@ -9,7 +9,7 @@
         android:name="com.example.singleliveevent.view.home.FirstFragment"
         android:label="FirstFragment" >
         <action
-            android:id="@+id/action_firstFragment_to_secondFragment"
+            android:id="@+id/to_secondFragment"
             app:destination="@id/secondFragment" />
     </fragment>
     <fragment
@@ -21,7 +21,7 @@
         android:name="com.example.singleliveevent.view.result.SecondFragment"
         android:label="SecondFragment" >
         <action
-            android:id="@+id/action_secondFragment_to_resultFragmentDialog"
+            android:id="@+id/to_resultFragmentDialog"
             app:destination="@id/resultFragmentDialog"
             app:popUpToInclusive="false" />
     </fragment>
@@ -30,7 +30,7 @@
         android:name="com.example.singleliveevent.view.result.ResultDialogFragment"
         android:label="ResultFragmentDialog" >
         <action
-            android:id="@+id/action_resultFragmentDialog_to_firstFragment"
+            android:id="@+id/to_firstFragment"
             app:destination="@id/firstFragment"
             app:launchSingleTop="true"
             app:popUpTo="@id/firstFragment"

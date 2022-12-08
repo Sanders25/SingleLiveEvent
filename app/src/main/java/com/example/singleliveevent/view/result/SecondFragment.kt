@@ -21,17 +21,20 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val binding = FragmentSecondBinding.bind(view)
+        var result: Int? = null
 
-        viewModel.dataFlow.onEach { result ->
+        binding.nextButton.setOnClickListener {
+            result?.let {
+                navigate(SecondFragmentDirections.toResultFragmentDialog(it))
+            }
+        }
+
+        viewModel.dataFlow.onEach { _result ->
             delay(3.seconds)
-            binding.textviewResult.text = "Result: $result"
+            binding.textviewResult.text = resources.getString(R.string.result) + _result
             binding.nextButton.apply {
+                result = _result
                 isEnabled = true
-                setOnClickListener {
-                    navigate(SecondFragmentDirections.actionSecondFragmentToResultFragmentDialog(
-                        result
-                    ))
-                }
             }
 //            viewModel.actionDone()
         }.launchWith(lifecycle)

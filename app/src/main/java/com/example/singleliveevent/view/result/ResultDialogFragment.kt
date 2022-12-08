@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.Window
 import androidx.fragment.app.DialogFragment
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.singleliveevent.R
 import com.example.singleliveevent.databinding.FragmentDialogResultBinding
@@ -24,11 +23,10 @@ class ResultDialogFragment : DialogFragment(R.layout.fragment_dialog_result) {
         val binding = FragmentDialogResultBinding.bind(view)
         val args: ResultDialogFragmentArgs by navArgs()
         binding.dialogTextView.apply {
-            text = "$text ${args.result}"
+            text = resources.getString(R.string.result) + args.result
         }
-
         binding.dialogButton.setOnClickListener {
-            navigate(ResultDialogFragmentDirections.actionResultFragmentDialogToFirstFragment())
+            navigate(ResultDialogFragmentDirections.toFirstFragment())
         }
     }
 
@@ -37,6 +35,6 @@ class ResultDialogFragment : DialogFragment(R.layout.fragment_dialog_result) {
     }
 
     override fun onDismiss(dialog: DialogInterface) {
-        navigate(ResultDialogFragmentDirections.actionResultFragmentDialogToFirstFragment())
+        navigate(ResultDialogFragmentDirections.toFirstFragment())
     }
 }
