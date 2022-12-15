@@ -3,8 +3,6 @@ package com.example.singleliveevent.view
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
@@ -22,7 +20,9 @@ class HomeViewModel @Inject constructor() : ViewModel() {
         flow {
             delay(2.seconds)
             emit(Random.nextInt(100))
-        }.onCompletion { _performActionFlow.value = null }
+        }.onCompletion {
+            _performActionFlow.value = null
+        }
     }.shareIn(
         viewModelScope,
         SharingStarted.Lazily,

@@ -9,7 +9,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.navArgs
 import com.example.singleliveevent.R
 import com.example.singleliveevent.databinding.FragmentDialogResultBinding
-import com.example.singleliveevent.util.navigate
+import com.example.singleliveevent.util.findDestinationNavController
 
 class ResultDialogFragment : DialogFragment(R.layout.fragment_dialog_result) {
 
@@ -26,7 +26,7 @@ class ResultDialogFragment : DialogFragment(R.layout.fragment_dialog_result) {
             text = resources.getString(R.string.result) + args.result
         }
         binding.dialogButton.setOnClickListener {
-            navigate(ResultDialogFragmentDirections.toFirstFragment())
+            findDestinationNavController()?.navigate(ResultDialogFragmentDirections.toFirstFragment())
         }
     }
 
@@ -35,6 +35,6 @@ class ResultDialogFragment : DialogFragment(R.layout.fragment_dialog_result) {
     }
 
     override fun onDismiss(dialog: DialogInterface) {
-        navigate(ResultDialogFragmentDirections.toFirstFragment())
+        findDestinationNavController()?.navigate(ResultDialogFragmentDirections.toFirstFragment())
     }
 }

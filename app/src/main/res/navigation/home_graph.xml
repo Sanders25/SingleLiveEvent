@@ -13,10 +13,6 @@
             app:destination="@id/secondFragment" />
     </fragment>
     <fragment
-        android:id="@+id/outputFragment"
-        android:name="com.example.singleliveevent.view.OutputFragment"
-        android:label="OutputFragment" />
-    <fragment
         android:id="@+id/secondFragment"
         android:name="com.example.singleliveevent.view.result.SecondFragment"
         android:label="SecondFragment" >
